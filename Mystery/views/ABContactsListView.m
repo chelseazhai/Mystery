@@ -80,4 +80,8 @@
     [((ContactsListContainerView *)self.superview) hideSoftKeyboardWhenBeginScroll];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //
+}
+
 @end
