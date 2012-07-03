@@ -28,6 +28,9 @@
         // set table view dataSource and delegate
         self.dataSource = self;
         self.delegate = self;
+        
+        // set view gesture recognizer delegate
+        self.viewGestureRecognizerDelegate = self;
     }
     return self;
 }
@@ -81,6 +84,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%@ - tableView: didSelectRowAtIndexPath: - tableView = %@ and indexPath = %@", NSStringFromClass(self.class), tableView, indexPath);
+    
+    //
+}
+
+- (void)view:(UIView *)pView longPressAtPoint:(CGPoint)pPoint{
+    NSLog(@"%@ - view: longPressAtPoint: - view = %@ and longPress at point = %@", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint));
+    
+    //
+}
+
+- (void)view:(UIView *)pView swipeAtPoint:(CGPoint)pPoint{
+    NSLog(@"%@ - view: swipeAtPoint: - view = %@ and swipe at point = %@", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint));
+    
     //
 }
 

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ABContactsListView : UITableView <UITableViewDataSource, UITableViewDelegate>
+#import "CommonToolkit/CommonToolkit.h"
+
+@interface ABContactsListView : UITableView <UITableViewDataSource, UITableViewDelegate, UIViewGestureRecognizerDelegate>
 
 // all contacts info array in addressBook reference
 @property (nonatomic, readonly) NSArray *allContactsInfoArrayInABRef;
