@@ -34,7 +34,7 @@
         self.title = NSLocalizedString(@"all contacts list view title", nil);
         
         // set test right bar button item
-        self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStyleBordered target:self action:@selector(contactsListContainerViewTest)];
+        //self.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Test" style:UIBarButtonItemStyleBordered target:self action:@selector(contactsListContainerViewTest)];
         
         // get UIScreen bounds
         CGRect _screenBounds = [[UIScreen mainScreen] bounds];

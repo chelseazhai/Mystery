@@ -83,20 +83,44 @@
     [((ContactsListContainerView *)self.superview) hideSoftKeyboardWhenBeginScroll];
 }
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@ - tableView: didSelectRowAtIndexPath: - tableView = %@ and indexPath = %@", NSStringFromClass(self.class), tableView, indexPath);
     
     //
 }
+ */
 
-- (void)view:(UIView *)pView longPressAtPoint:(CGPoint)pPoint{
-    NSLog(@"%@ - view: longPressAtPoint: - view = %@ and longPress at point = %@", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint));
+- (LongPressFingerMode)longPressFingerModeInView:(UIView *)pView{
+    return fourFingers;
+}
+
+- (void)view:(UIView *)pView longPressAtPoint:(CGPoint)pPoint andFingerMode:(LongPressFingerMode)pFingerMode{
+    NSLog(@"%@ - view: longPressAtPoint: - view = %@, longPress at point = %@ and finger mode = %d", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint), pFingerMode);
     
     //
 }
 
-- (void)view:(UIView *)pView swipeAtPoint:(CGPoint)pPoint{
-    NSLog(@"%@ - view: swipeAtPoint: - view = %@ and swipe at point = %@", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint));
+- (UISwipeGestureRecognizerDirection)swipeDirectionInView:(UIView *)pView{
+    return UISwipeGestureRecognizerDirectionLeft;
+}
+
+- (void)view:(UIView *)pView swipeAtPoint:(CGPoint)pPoint andDirection:(UISwipeGestureRecognizerDirection)pDirection{
+    NSLog(@"%@ - view: swipeAtPoint: - view = %@, swipe at point = %@ and dirextion = %d", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint), pDirection);
+    
+    //
+}
+
+- (TapFingerMode)tapFingerModeInView:(UIView *)pView{
+    return single | doubleFingers;
+}
+
+- (TapCountMode)tapCountModeInView:(UIView *)pView{
+    return twice;
+}
+
+- (void)view:(UIView *)pView tapAtPoint:(CGPoint)pPoint andFingerMode:(TapFingerMode)pFingerMode andCountMode:(TapCountMode)pCountMode{
+    NSLog(@"%@ - view: tapAtPoint: - view = %@, tap at point = %@, finger mode = %d and count mode = %d", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint), pFingerMode, pCountMode);
     
     //
 }
