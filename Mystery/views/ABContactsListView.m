@@ -83,13 +83,11 @@
     [((ContactsListContainerView *)self.superview) hideSoftKeyboardWhenBeginScroll];
 }
 
-/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@ - tableView: didSelectRowAtIndexPath: - tableView = %@ and indexPath = %@", NSStringFromClass(self.class), tableView, indexPath);
     
     //
 }
- */
 
 - (LongPressFingerMode)longPressFingerModeInView:(UIView *)pView{
     return fourFingers;

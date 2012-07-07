@@ -22,9 +22,9 @@
 #define PADDING 1.0
 
 // softKeyboard indicate button title array
-#define INDICATEBUTTON_TITLE    [NSArray arrayWithObjects:@"down", @"up", nil]
+#define INDICATEBUTTON_TITLE    [NSArray arrayWithObjects:@"▼", @"▲", nil]
 // softKeyboard type switch button title array
-#define TYPESWITCHBUTTON_TITLE  [NSArray arrayWithObjects:@"abc", @"123", nil]
+#define TYPESWITCHBUTTON_TITLE  [NSArray arrayWithObjects:@"ABC ▲", @"123 ▼", nil]
 
 // ContactsSearchToolbar extension
 @interface ContactsProcessToolbar ()
@@ -90,6 +90,8 @@
         _mSoftKeyboardTypeSwitchBtn.showsTouchWhenHighlighted = YES;
         // set title
         [_mSoftKeyboardTypeSwitchBtn setTitle:[TYPESWITCHBUTTON_TITLE objectAtIndex:_mSoftKeyboardType] forState:UIControlStateNormal];
+        // set title font
+        _mSoftKeyboardTypeSwitchBtn.titleLabel.font = [UIFont boldSystemFontOfSize:11.0];
         // add target
         [_mSoftKeyboardTypeSwitchBtn addTarget:self action:@selector(changeSoftkeyboardType) forControlEvents:UIControlEventTouchUpInside];
         
