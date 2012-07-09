@@ -58,6 +58,7 @@
     // Configure the cell...
     _cell.backgroundColor = CONTACTSPROCESS_SOFTKEYBOARD_FRONT_COLOR;
     _cell.pressedBackgroundColor = [UIColor blueColor];
+    _cell.coreData = [NSNumber numberWithString:[[CONTACTSPROCESS_SOFTKEYBOARD_CONTENTS objectForKey:[NSNumber numberWithInteger:pIndexPath.skb_row]] objectAtIndex:pIndexPath.skb_cell]];
     
     @autoreleasepool {
         UILabel *_label = [[UILabel alloc] init];

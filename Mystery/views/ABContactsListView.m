@@ -90,7 +90,7 @@
 }
 
 - (LongPressFingerMode)longPressFingerModeInView:(UIView *)pView{
-    return fourFingers;
+    return doubleFingers;
 }
 
 - (void)view:(UIView *)pView longPressAtPoint:(CGPoint)pPoint andFingerMode:(LongPressFingerMode)pFingerMode{
