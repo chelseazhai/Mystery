@@ -10,10 +10,10 @@
 
 #import "CommonToolkit/CommonToolkit.h"
 
-@interface ABContactsListView : UITableView <UITableViewDataSource, UITableViewDelegate, UIViewGestureRecognizerDelegate>
+@interface ABContactsListView : UITableView <UITableViewDataSource, UITableViewDelegate, UIViewGestureRecognizerDelegate, AddressBookChangedDelegate>
 
 // all contacts info array in addressBook reference
-@property (nonatomic, readonly) NSArray *allContactsInfoArrayInABRef;
+@property (nonatomic, readonly) NSMutableArray *allContactsInfoArrayInABRef;
 
 // present contacts info array reference
 @property (nonatomic, retain) NSMutableArray *presentContactsInfoArrayRef;

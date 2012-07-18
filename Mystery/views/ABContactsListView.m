@@ -31,6 +31,9 @@
         
         // set view gesture recognizer delegate
         self.viewGestureRecognizerDelegate = self;
+        
+        // add addressBook changed observer
+        [[AddressBookManager shareAddressBookManager] addABChangedObserver:self];
     }
     return self;
 }
@@ -121,6 +124,27 @@
     NSLog(@"%@ - view: tapAtPoint: - view = %@, tap at point = %@, finger mode = %d and count mode = %d", NSStringFromClass(self.class), pView, NSStringFromCGPoint(pPoint), pFingerMode, pCountMode);
     
     //
+}
+
+- (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo context:(void *)pContext{
+    if (pInfo && 0 != [pInfo count]) {
+        // get changed contact id array
+        NSArray *_changedContactIdArr = [pInfo allKeys];
+        
+        for (NSNumber *_contactId in _changedContactIdArr) {
+            // get action
+            switch (((NSNumber *)[[pInfo objectForKey:_contactId] objectForKey:CONTACT_ACTION]).intValue) {
+                case contactAdd:
+                    [self insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
+                    break;
+                    
+                case contactModify:
+                case contactDelete:
+                    [self reloadData];
+                    break;
+            }
+        }
+    }
 }
 
 @end

@@ -26,6 +26,7 @@
 		DCBBB302158A32E0007C2301 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCBBB300158A32E0007C2301 /* InfoPlist.strings */; };
 		DCBBB309158A3304007C2301 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCBBB307158A3304007C2301 /* Localizable.strings */; };
 		DCC03647159C464600D19A26 /* ContactsProcessToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC03646159C464600D19A26 /* ContactsProcessToolbar.m */; };
+		DCC26CC915B02487003AF896 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC26CC815B02487003AF896 /* CoreText.framework */; };
 		DCC52D15159AE8BC00C66260 /* ContactsListContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC52D14159AE8BB00C66260 /* ContactsListContainerView.m */; };
 		DCC52D1C159AF07100C66260 /* ContactsProcessSoftKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC52D1B159AF07100C66260 /* ContactsProcessSoftKeyboard.m */; };
 		DCD459761590544500564314 /* CommonToolkitBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DCD459741590544500564314 /* CommonToolkitBundle.bundle */; };
@@ -64,6 +65,7 @@
 		DCBBB30C158A3318007C2301 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "internationalization/zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DCC03645159C464600D19A26 /* ContactsProcessToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsProcessToolbar.h; path = views/ContactsProcessToolbar.h; sourceTree = "<group>"; };
 		DCC03646159C464600D19A26 /* ContactsProcessToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsProcessToolbar.m; path = views/ContactsProcessToolbar.m; sourceTree = "<group>"; };
+		DCC26CC815B02487003AF896 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		DCC52D13159AE8BB00C66260 /* ContactsListContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsListContainerView.h; path = views/ContactsListContainerView.h; sourceTree = "<group>"; };
 		DCC52D14159AE8BB00C66260 /* ContactsListContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsListContainerView.m; path = views/ContactsListContainerView.m; sourceTree = "<group>"; };
 		DCC52D1A159AF07100C66260 /* ContactsProcessSoftKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsProcessSoftKeyboard.h; path = views/ContactsProcessSoftKeyboard.h; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCC26CC915B02487003AF896 /* CoreText.framework in Frameworks */,
 				DC0F2E1C1592F9BE00F9D4FA /* libicucore.dylib in Frameworks */,
 				DCBBB2F5158A3044007C2301 /* libz.dylib in Frameworks */,
 				DCBBB2F3158A303C007C2301 /* SystemConfiguration.framework in Frameworks */,
@@ -115,6 +118,7 @@
 			children = (
 				DC0F2E1B1592F9BE00F9D4FA /* libicucore.dylib */,
 				DCBBB2F4158A3044007C2301 /* libz.dylib */,
+				DCC26CC815B02487003AF896 /* CoreText.framework */,
 				DCBBB2F2158A303C007C2301 /* SystemConfiguration.framework */,
 				DCBBB2F0158A3036007C2301 /* MobileCoreServices.framework */,
 				DCBBB2EE158A3030007C2301 /* CFNetwork.framework */,
