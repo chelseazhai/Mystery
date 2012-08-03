@@ -11,24 +11,44 @@
 #import "CommonToolkit/CommonToolkit.h"
 
 @interface ContactsListTableViewCell : UITableViewCell {
+    // contact id, cell unique identifier
+    NSInteger _mId;
+    
+    // contact photo imageView photo image
+    UIImage *_mPhotoImg;
+    // contact display name label text
+    NSString *_mDisplayName;
+    // contact group label text
+    NSString *_mGroupName;
+    // contact phone numbers array
+    NSArray *_mPhoneNumbersArray;
+    
+    // phone number matching index array
+    NSArray *_mPhoneNumberMatchingIndexs;
+    // name matching index array
+    NSArray *_mNameMatchingIndexs;
+    
     // contact photo imageView
     UIImageView *_mPhotoImgView;
     // contact display name label
-    UILabel *_mDisplayNameLabel;
+    UIAttributedLabel *_mDisplayNameLabel;
     // contact group label
     UILabel *_mGroupLabel;
     // contact phone numbers display label
     UILabel *_mPhoneNumbersLabel;
+    // contact phone numbers display attributed label parent view
+    UIView *_mPhoneNumbersAttributedLabelParentView;
 }
 
-// contact photo imageView photo image
+@property (nonatomic, readwrite) NSInteger uniqueIdentifier;
+
 @property (nonatomic, retain) UIImage *photoImg;
-// contact display name label text
 @property (nonatomic, retain) NSString *displayName;
-// contact group label text
 @property (nonatomic, retain) NSString *groupName;
-// contact phone numbers array
 @property (nonatomic, retain) NSArray *phoneNumbersArray;
+
+@property (nonatomic, retain) NSArray *phoneNumberMatchingIndexs;
+@property (nonatomic, retain) NSArray *nameMatchingIndexs;
 
 // get the height of the contacts list tableViewCell with contactBean object
 + (CGFloat)cellHeightWithContact:(ContactBean *)pContact;

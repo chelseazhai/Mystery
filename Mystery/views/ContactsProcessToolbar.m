@@ -190,6 +190,31 @@
     }
 }
 
+- (NSArray *)longPressCellIndexPathsInSoftKeyboard:(UISoftKeyboard *)pSoftKeyboard{
+    NSMutableArray *_ret = [[NSMutableArray alloc] init];
+    
+    // add need long press cell indexPath to return result
+    @autoreleasepool {
+        [_ret addObject:/*softKeyboard delete cell*/[NSIndexPath indexPathForCell:2 inRow:3]];
+    }
+    
+    return _ret;
+}
+
+- (void)softKeyboard:(UISoftKeyboard *)pSoftKeyboard longPressCellAtIndexPath:(NSIndexPath *)indexPath{
+    // check softKeyboard cell function according to cell indexPath
+    // delete
+    if (indexPath.skb_row == 3 && indexPath.skb_cell == 2) {
+        // delete all
+        if (_mUserInputTextField.text && ![[_mUserInputTextField.text trimWhitespaceAndNewline] isEqualToString:@""]) {
+            // set inputDiaplayLabel text for user input with custom softKeyboard
+            _mUserInputTextField.text = @"";
+            // manual call method:(void)userInputTextDidChanged:
+            [self userInputTextDidChanged:_mUserInputTextField];
+        }
+    }
+}
+
 - (void)userInputTextDidChanged:(UITextField *)pTextField{
     // update user input diaplay view label text
     _mInputDiaplayLabel.text = pTextField.text;

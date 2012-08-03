@@ -68,10 +68,13 @@
     // Configure the cell...
     // get contact bean 
     ContactBean *_contactBean = [_presentContactsInfoArrayRef objectAtIndex:indexPath.row];
+    cell.uniqueIdentifier = _contactBean.id;
     cell.photoImg = [UIImage imageWithData:_contactBean.photo];
     cell.displayName = _contactBean.displayName;
     cell.groupName = [_contactBean.groups toStringWithSeparator:@", "];
     cell.phoneNumbersArray = _contactBean.phoneNumbers;
+    cell.phoneNumberMatchingIndexs = [_contactBean.extensionDic objectForKey:PHONENUMBER_MATCHING_INDEXS];
+    cell.nameMatchingIndexs = [_contactBean.extensionDic objectForKey:NAME_MATCHING_INDEXS];
     
     return cell;
 }
@@ -90,6 +93,10 @@
     NSLog(@"%@ - tableView: didSelectRowAtIndexPath: - tableView = %@ and indexPath = %@", NSStringFromClass(self.class), tableView, indexPath);
     
     //
+}
+
+- (GestureType)supportedGestureInView:(UIView *)pView{
+    return tap | longPress | swipe;
 }
 
 - (LongPressFingerMode)longPressFingerModeInView:(UIView *)pView{
@@ -143,6 +150,25 @@
                     break;
                     
                 case contactDelete:
+                    /*
+                    for (NSInteger _index = 0; _index < [self numberOfRowsInSection:0]; _index++) {
+                        BOOL _existed = NO;
+                        
+                        NSLog(@"cell unique identifier = %d", ((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier);
+                        
+                        for (ContactBean *_contact in _presentContactsInfoArrayRef) {
+                            if (((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier == _contact.id) {
+                                _existed = YES;
+                                
+                                break;
+                            }
+                        }
+                        
+                        if (!_existed) {
+                            [self deleteRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0] withRowAnimation:UITableViewRowAnimationRight];
+                        }
+                    }
+                     */
                     [self reloadData];
                     break;
             }

@@ -67,6 +67,12 @@
 - (void)searchContactWithParameter:(NSString *)pParameter{
     // check search parameter
     if ([pParameter isEqualToString:@""]) {
+        // reset contact matching index array
+        for (ContactBean *_contact in _mABContactsListView.allContactsInfoArrayInABRef) {
+            [_contact.extensionDic removeObjectForKey:PHONENUMBER_MATCHING_INDEXS];
+            [_contact.extensionDic removeObjectForKey:NAME_MATCHING_INDEXS];
+        }
+        
         // show all contacts in addressBook
         _mABContactsListView.presentContactsInfoArrayRef = [NSMutableArray arrayWithArray:_mABContactsListView.allContactsInfoArrayInABRef];
     }
@@ -96,6 +102,17 @@
                 // if the two contacts id is equal, add it to searched contacts array
                 if (_contact.id == _searchedContact.id) {
                     [_searchedContactsArray addObject:_searchedContact];
+                    
+                    // check softKeyboard type and reset searched contact matching index array
+                    switch (_mContactsProcessToolbar.softKeyboardType) {
+                        case custom:
+                            [_contact.extensionDic removeObjectForKey:NAME_MATCHING_INDEXS];
+                            break;
+                            
+                        case iosSystem:
+                            [_contact.extensionDic removeObjectForKey:PHONENUMBER_MATCHING_INDEXS];
+                            break;
+                    }
                     
                     break;
                 }
