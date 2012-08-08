@@ -133,7 +133,7 @@
     //
 }
 
-- (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo context:(void *)pContext{
+- (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo observer:(id)pObserver{
     if (pInfo && 0 != [pInfo count]) {
         // get changed contact id array
         NSArray *_changedContactIdArr = [pInfo allKeys];
@@ -142,11 +142,11 @@
             // get action
             switch (((NSNumber *)[[pInfo objectForKey:_contactId] objectForKey:CONTACT_ACTION]).intValue) {
                 case contactAdd:
-                    [self insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
+                    [pObserver insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
                     break;
                     
                 case contactModify:
-                    [self reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
+                    [pObserver reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
                     break;
                     
                 case contactDelete:
@@ -169,7 +169,7 @@
                         }
                     }
                      */
-                    [self reloadData];
+                    [pObserver reloadData];
                     break;
             }
         }
