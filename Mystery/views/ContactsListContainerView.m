@@ -40,7 +40,7 @@
         CGRect _screenBounds = [[UIScreen mainScreen] bounds];
         
         // update contacts list container view frame
-        self.frame = CGRectMake(_screenBounds.origin.x, _screenBounds.origin.y, _screenBounds.size.width, _screenBounds.size.height - /*statusBar height*/[CommonUtils appStatusBarHeight] - /*navigationBar height*/[CommonUtils appNavigationBarHeight]);
+        self.frame = CGRectMake(_screenBounds.origin.x, _screenBounds.origin.y, _screenBounds.size.width, _screenBounds.size.height - /*statusBar height*/[UIDevice currentDevice].statusBarHeight - /*navigationBar default height*/[UIDevice currentDevice].navigationBarHeight);
         
         // init subviews and set their attributes
         // init addressBook contacts list table view
