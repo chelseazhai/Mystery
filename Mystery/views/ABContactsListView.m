@@ -23,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // get all contacts info array from addressBook
-        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [AddressBookManager shareAddressBookManager].allContactsInfoArray;
+        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [AddressBookManager shareAddressBookManager].allSortedContactsInfoArray;
         
         // set table view dataSource and delegate
         self.dataSource = self;
@@ -142,11 +142,13 @@
             // get action
             switch (((NSNumber *)[[pInfo objectForKey:_contactId] objectForKey:CONTACT_ACTION]).intValue) {
                 case contactAdd:
-                    [pObserver insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
+                    //[pObserver insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
+                    [pObserver reloadData];
                     break;
                     
                 case contactModify:
-                    [pObserver reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
+                    //[pObserver reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
+                    [pObserver reloadData];
                     break;
                     
                 case contactDelete:
