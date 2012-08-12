@@ -23,7 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // get all contacts info array from addressBook
-        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [AddressBookManager shareAddressBookManager].allSortedContactsInfoArray;
+        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray phoneticsSortedContactsInfoArray];
         
         // set table view dataSource and delegate
         self.dataSource = self;
@@ -134,46 +134,47 @@
 }
 
 - (void)addressBookChanged:(ABAddressBookRef)pAddressBook info:(NSDictionary *)pInfo observer:(id)pObserver{
-    if (pInfo && 0 != [pInfo count]) {
-        // get changed contact id array
-        NSArray *_changedContactIdArr = [pInfo allKeys];
-        
-        for (NSNumber *_contactId in _changedContactIdArr) {
-            // get action
-            switch (((NSNumber *)[[pInfo objectForKey:_contactId] objectForKey:CONTACT_ACTION]).intValue) {
-                case contactAdd:
-                    //[pObserver insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
-                    [pObserver reloadData];
-                    break;
+    // reset all contacts info array from addressBook
+    _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray phoneticsSortedContactsInfoArray];
+    
+    // get changed contact id array
+    NSArray *_changedContactIdArr = [pInfo allKeys];
+    
+    for (NSNumber *_contactId in _changedContactIdArr) {
+        // get action
+        switch (((NSNumber *)[[pInfo objectForKey:_contactId] objectForKey:CONTACT_ACTION]).intValue) {
+            case contactAdd:
+                //[pObserver insertRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef count] - 1 inSection:0] withRowAnimation:UITableViewRowAnimationLeft];
+                [pObserver reloadData];
+                break;
+                
+            case contactModify:
+                //[pObserver reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
+                [pObserver reloadData];
+                break;
+                
+            case contactDelete:
+                /*
+                for (NSInteger _index = 0; _index < [self numberOfRowsInSection:0]; _index++) {
+                    BOOL _existed = NO;
                     
-                case contactModify:
-                    //[pObserver reloadRowAtIndexPath:[NSIndexPath indexPathForRow:[_presentContactsInfoArrayRef indexOfObject:[[AddressBookManager shareAddressBookManager] getContactInfoById:_contactId.intValue]] inSection:0] withRowAnimation:UITableViewRowAnimationMiddle];
-                    [pObserver reloadData];
-                    break;
+                    NSLog(@"cell unique identifier = %d", ((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier);
                     
-                case contactDelete:
-                    /*
-                    for (NSInteger _index = 0; _index < [self numberOfRowsInSection:0]; _index++) {
-                        BOOL _existed = NO;
-                        
-                        NSLog(@"cell unique identifier = %d", ((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier);
-                        
-                        for (ContactBean *_contact in _presentContactsInfoArrayRef) {
-                            if (((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier == _contact.id) {
-                                _existed = YES;
-                                
-                                break;
-                            }
-                        }
-                        
-                        if (!_existed) {
-                            [self deleteRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0] withRowAnimation:UITableViewRowAnimationRight];
+                    for (ContactBean *_contact in _presentContactsInfoArrayRef) {
+                        if (((ContactsListTableViewCell *)[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0]]).uniqueIdentifier == _contact.id) {
+                            _existed = YES;
+                            
+                            break;
                         }
                     }
-                     */
-                    [pObserver reloadData];
-                    break;
-            }
+                    
+                    if (!_existed) {
+                        [self deleteRowAtIndexPath:[NSIndexPath indexPathForRow:_index inSection:0] withRowAnimation:UITableViewRowAnimationRight];
+                    }
+                }
+                 */
+                [pObserver reloadData];
+                break;
         }
     }
 }
