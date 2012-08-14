@@ -20,7 +20,7 @@
 }
 
 // search contact with parameters
-- (void)searchContactWithParameter:(NSString *)pParameter;
+- (void)searchContactWithParameter;
 
 // hide softKeyboard when contacts list table view will begin dragging
 - (void)hideSoftKeyboardWhenBeginScroll;

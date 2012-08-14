@@ -216,9 +216,10 @@
         NSMutableAttributedString *_attributedDisplayName = [NSMutableAttributedString attributedStringWithString:_mDisplayName];
         // set font
         [_attributedDisplayName setFont:[UIFont boldSystemFontOfSize:18.0]];
+        
         // set attributed display name text color
         for (NSNumber *_index in nameMatchingIndexs) {
-            [_attributedDisplayName setTextColor:MATCHINGTEXTCOLOR range:NSMakeRange(_index.integerValue >= [_mDisplayName rangeOfString:@" "].location ? _index.integerValue + 1 : _index.integerValue, 1)];
+            [_attributedDisplayName setTextColor:MATCHINGTEXTCOLOR range:[_mDisplayName rangeOfString:[[_mDisplayName nameArraySeparatedByCharacter] objectAtIndex:_index.integerValue]]];
         }
         
         // set display name label attributed text

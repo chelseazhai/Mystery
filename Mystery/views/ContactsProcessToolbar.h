@@ -52,4 +52,7 @@ typedef enum{
 
 @property (nonatomic, readonly) BOOL softKeyboardHidden;
 
+// get contacts searching parameter
+- (NSString *)contactsSearchingParameter;
+
 @end
