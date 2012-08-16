@@ -18,6 +18,8 @@
     UIImage *_mPhotoImg;
     // contact display name label text
     NSString *_mDisplayName;
+    // contact full name array
+    NSArray *_mFullNames;
     // contact group label text
     NSString *_mGroupName;
     // contact phone numbers array
@@ -44,6 +46,7 @@
 
 @property (nonatomic, retain) UIImage *photoImg;
 @property (nonatomic, retain) NSString *displayName;
+@property (nonatomic, retain) NSArray *fullNames;
 @property (nonatomic, retain) NSString *groupName;
 @property (nonatomic, retain) NSArray *phoneNumbersArray;
 

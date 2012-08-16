@@ -74,6 +74,7 @@
     cell.uniqueIdentifier = _contactBean.id;
     cell.photoImg = [UIImage imageWithData:_contactBean.photo];
     cell.displayName = _contactBean.displayName;
+    cell.fullNames = _contactBean.fullNames;
     cell.groupName = [_contactBean.groups toStringWithSeparator:@", "];
     cell.phoneNumbersArray = _contactBean.phoneNumbers;
     cell.phoneNumberMatchingIndexs = [_contactBean.extensionDic objectForKey:PHONENUMBER_MATCHING_INDEXS];

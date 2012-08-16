@@ -74,7 +74,7 @@
         }
         
         // show all contacts in addressBook
-        _mABContactsListView.presentContactsInfoArrayRef = [NSMutableArray arrayWithArray:_mABContactsListView.allContactsInfoArrayInABRef];
+        _mABContactsListView.presentContactsInfoArrayRef = _mABContactsListView.allContactsInfoArrayInABRef;
     }
     else {
         // define temp array
