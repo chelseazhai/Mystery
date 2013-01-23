@@ -367,7 +367,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guanghui hu (TS23V9C6Z2)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -381,7 +381,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18325F67-E9FB-44CF-852B-BEEA2FF29D43";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -392,15 +393,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: guanghui hu";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "96E84A16-17A6-4C29-BF90-F64BE7A29120";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -418,7 +421,7 @@
 				GCC_PREFIX_HEADER = "Mystery/Mystery-Prefix.pch";
 				INFOPLIST_FILE = "Mystery/Mystery-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E59470E3-111F-4D50-8BD1-9724636EECD5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "18325F67-E9FB-44CF-852B-BEEA2FF29D43";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -426,7 +429,7 @@
 		DCBBB2D1158A286F007C2301 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guanghui hu (TS23V9C6Z2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: guanghui hu";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Mystery/othersFramework\"",
@@ -435,7 +438,7 @@
 				GCC_PREFIX_HEADER = "Mystery/Mystery-Prefix.pch";
 				INFOPLIST_FILE = "Mystery/Mystery-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E59470E3-111F-4D50-8BD1-9724636EECD5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "96E84A16-17A6-4C29-BF90-F64BE7A29120";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

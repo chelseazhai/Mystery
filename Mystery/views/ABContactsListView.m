@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // get all contacts info array from addressBook
-        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray phoneticsSortedContactsInfoArray];
+        _allContactsInfoArrayInABRef = _presentContactsInfoArrayRef = [[AddressBookManager shareAddressBookManager].allContactsInfoArray optPhoneticsSortedContactsInfoArray];
         
         // set table view dataSource and delegate
         self.dataSource = self;
