@@ -239,7 +239,7 @@
             case contactModify:
             {
                 // save the modify contact index of all contacts info array in addressBook reference and new temp all contacts info array in addressBook
-                NSInteger _oldindex, _newIndex;
+                NSInteger _oldindex = 0, _newIndex = 0;
                 for (NSInteger _index = 0; _index < [_allContactsInfoArrayInABRef count]; _index++) {
                     if (((ContactBean *)[_allContactsInfoArrayInABRef objectAtIndex:_index]).id == _contactId.integerValue) {
                         _oldindex = _index;
