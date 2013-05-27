@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DC0F2E1C1592F9BE00F9D4FA /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0F2E1B1592F9BE00F9D4FA /* libicucore.dylib */; };
+		DC756B931752EF6400F287FA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B901752EF6400F287FA /* Default-568h@2x.png */; };
+		DC756B941752EF6400F287FA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B911752EF6400F287FA /* Default.png */; };
+		DC756B951752EF6400F287FA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC756B921752EF6400F287FA /* Default@2x.png */; };
 		DC8574E8174DEB98008D8B76 /* CommonToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8574E7174DEB98008D8B76 /* CommonToolkit.framework */; };
 		DC8574ED174DEC12008D8B76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8574E9174DEC12008D8B76 /* InfoPlist.strings */; };
 		DC8574EE174DEC12008D8B76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC8574EB174DEC12008D8B76 /* Localizable.strings */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		DC0F2E1B1592F9BE00F9D4FA /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		DC756B901752EF6400F287FA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Mystery/Resources/Splashes/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		DC756B911752EF6400F287FA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Mystery/Resources/Splashes/Default.png; sourceTree = SOURCE_ROOT; };
+		DC756B921752EF6400F287FA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Mystery/Resources/Splashes/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		DC8574E7174DEB98008D8B76 /* CommonToolkit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonToolkit.framework; path = Mystery/OtherFrameworks/CommonToolkit.framework; sourceTree = "<group>"; };
 		DC8574EA174DEC12008D8B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC8574EC174DEC12008D8B76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/Internationalization/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -191,7 +197,7 @@
 				DCD459731590544500564314 /* Bundles */,
 				DCBBB2F7158A3115007C2301 /* Icons */,
 				DCBBB2F8158A3115007C2301 /* Images */,
-				DCBBB2FA158A3115007C2301 /* Splash */,
+				DCBBB2FA158A3115007C2301 /* Splashes */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -211,10 +217,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		DCBBB2FA158A3115007C2301 /* Splash */ = {
+		DCBBB2FA158A3115007C2301 /* Splashes */ = {
 			isa = PBXGroup;
 			children = (
+				DC756B901752EF6400F287FA /* Default-568h@2x.png */,
+				DC756B911752EF6400F287FA /* Default.png */,
+				DC756B921752EF6400F287FA /* Default@2x.png */,
 			);
+			name = Splashes;
 			path = Splash;
 			sourceTree = "<group>";
 		};
@@ -314,6 +324,9 @@
 				DCD459771590544500564314 /* Pinyin4jBundle.bundle in Resources */,
 				DC8574ED174DEC12008D8B76 /* InfoPlist.strings in Resources */,
 				DC8574EE174DEC12008D8B76 /* Localizable.strings in Resources */,
+				DC756B931752EF6400F287FA /* Default-568h@2x.png in Resources */,
+				DC756B941752EF6400F287FA /* Default.png in Resources */,
+				DC756B951752EF6400F287FA /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
